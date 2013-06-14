@@ -5,6 +5,13 @@ the orange trees at our greenhouse at the University of Florida.
 
 ## How does it work?
 
+- RaspberryPi
+- Temperature and Humidity sensor
+- 3G Cellular Data Dongle
+- Web App running on the cloud somewhere (Heroku is fine) that receives
+  data from the sensor
+- Can also send data/receive commands via text message
+
 ## Instructions
 
 ## LICENSE
