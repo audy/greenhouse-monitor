@@ -1,0 +1,14 @@
+!!! 5
+
+%html
+  %head
+    %title Skellington
+    = css :main
+    = js :main
+
+%body{ :'data-spy' => 'scroll', :'data-target' => '.subnav', :'data-offset' => 60 }
+
+  = haml :_topbar
+
+  %div.container
+    = yield
