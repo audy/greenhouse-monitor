@@ -4,12 +4,16 @@ source 'http://gems.github.com'
 gem "sinatra"
 gem "sinatra-reloader"
 gem "haml"
-gem "sqlite3"
-gem "dm-sqlite-adapter"
-gem "encrypted_cookie"
-gem "data_mapper"
+gem "ohm"
+gem "foreman"
 
-gem 'sinatra-assetpack', :require => 'sinatra/assetpack', :git => 'git://github.com/rstacruz/sinatra-assetpack.git'
+group :twitter do
+  gem "chatterbot", :require => 'chatterbot/dsl'
+end
+
+gem 'sinatra-assetpack', \
+  :require => 'sinatra/assetpack', \
+  :git => 'git://github.com/rstacruz/sinatra-assetpack.git'
 
 group :test do
   gem "rspec"

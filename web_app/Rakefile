@@ -15,11 +15,10 @@ namespace :db do
   desc "seed the database with informatione"
   task :seed do
   end
-  
-  desc "auto migrate the database"
-  task :automigrate do
+
+  desc "drop"
+  task :drop do
     load 'environment.rb'
-    fail "never auto_migrate! on the production server!" if $ENVIRONMENT == :production
-    DataMapper.auto_migrate!
+    Ohm.flush
   end
 end

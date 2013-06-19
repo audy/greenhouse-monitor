@@ -1,4 +1,39 @@
-%header{class: 'hero-unit'}
-  %div.inner
-    %h1 Data goes here
-    %p Pretty Pretty Graphs
+%h1 Current Status
+%div.row
+  %div.span12
+    .data-box
+      %div
+        %span.temperature
+        &deg;C,
+        %span.humidity
+        \%
+      %div
+        (Updated:
+        %span.timestamp
+        )
+
+
+:javascript
+  update_databox = function() {
+    $.getJSON('measurement/latest.json', function(data) {
+        var temperature = data.temperature;
+        var humidity = data.humidity;
+        var timestamp = new Date(data.timestamp * 1000);
+        $('.temperature').html(temperature);
+        $('.humidity').html(humidity);
+        $('.timestamp').html(timestamp);
+      });
+  }
+
+
+  updateloop = function() {
+    setTimeout(function() {
+      update_databox()
+      updateloop()}
+    , 3000)
+  }
+
+  $(function() {
+    update_databox();
+    updateloop();
+  });
