@@ -18,7 +18,7 @@ RSpec.configure do |config|
     Skellington
   end
   
-  config.before(:each) { DataMapper.auto_migrate! }
+  config.before(:each) { Ohm.flush }
   
   config.include Rack::Test::Methods
   config.include Webrat::Matchers
