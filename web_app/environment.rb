@@ -11,11 +11,13 @@ class Skellington < Sinatra::Base
   set :environment, :development
   set :root, File.dirname(__FILE__)
 
-  DB_PATH = File.join(File.dirname(__FILE__), 'db')
+  configure :production do
+    Ohm.connect :db => 'gm-production'
+  end
 
   configure :development do
     # connect to redis.
-    Ohm.connect
+    Ohm.connect :db => 'gm-development'
 
     # so we can access over the network.
     set :bind, '0.0.0.0'
@@ -26,6 +28,7 @@ class Skellington < Sinatra::Base
   end
 
   configure :test do
+    Ohm.connect :db => 'gm-test'
   end
 
 end
