@@ -21,4 +21,13 @@ namespace :db do
     load 'environment.rb'
     Ohm.flush
   end
+
+  desc "dumps measurements to csv"
+  task :dump do
+    load 'environment.rb'
+    puts 'temperature,humidity,timestamp'
+    Measurement.all.each do |m|
+      puts "#{m.temperature},#{m.humidity},#{m.timestamp}"
+    end
+  end
 end
