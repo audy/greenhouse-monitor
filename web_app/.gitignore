@@ -1,1 +1,3 @@
 db/*
+config.yml
+twitter_oauth.yml
