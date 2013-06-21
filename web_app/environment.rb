@@ -6,18 +6,26 @@ Bundler.require(:default)
 
 require './models.rb'
 
+DB_PATH = File.join(File.dirname(__FILE__), 'db')
+
 class Skellington < Sinatra::Base
+
+  DataMapper.finalize
 
   set :environment, :development
   set :root, File.dirname(__FILE__)
 
   configure :production do
-    Ohm.connect :db => 'gm-production'
+    DataMapper.setup(:default,
+                     :adapter => 'sqlite',
+                     :database => File.join(DB_PATH, 'production.db'))
   end
 
   configure :development do
-    # connect to redis.
-    Ohm.connect :db => 'gm-development'
+
+    DataMapper.setup(:default,
+                     :adapter => 'sqlite',
+                     :database => File.join(DB_PATH, 'development.db'))
 
     # so we can access over the network.
     set :bind, '0.0.0.0'
@@ -28,7 +36,7 @@ class Skellington < Sinatra::Base
   end
 
   configure :test do
-    Ohm.connect :db => 'gm-test'
+    DataMapper.setup(:default, 'sqlite::memory:')
   end
 
 end

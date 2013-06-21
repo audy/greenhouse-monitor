@@ -6,4 +6,5 @@ describe 'The Applicaiton App' do
     get '/'
     last_response.should be_ok
   end
+
 end

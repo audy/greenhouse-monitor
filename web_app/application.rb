@@ -1,4 +1,5 @@
 require './environment.rb'
+require './helpers.rb'
 require 'sinatra'
 
 class Skellington < Sinatra::Base
@@ -35,14 +36,18 @@ class Skellington < Sinatra::Base
   end
 
   get '/measurement/latest.json' do
-    latest = Measurement.all.sort_by(:timestamp).last
-    latest.attributes.to_json
+    $stderr.puts Measurement.last.to_json
+    Measurement.last.to_json
+  end
+
+  # actually, last 24h
+  get '/measurement/day.json' do
+    Measurement.all(:timestamp.gt => Time.now.to_i - 60*60*24).to_json
   end
 
   post '/temperature/data' do
     reading = Measurement.create :temperature => params[:temperature].to_f,
-                                 :humidity => params[:humidity].to_f,
-                                 :timestamp => Time.now.to_time.to_i
+                                 :humidity => params[:humidity].to_f
     p reading
   end
 

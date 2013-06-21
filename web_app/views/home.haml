@@ -1,30 +1,58 @@
-%h1 Current Status
+%div.row-fluid
+  %div.span6
+    %h2.muted
+      Temperature
+    %h1
+      %span.dark.measurement#temperature
+  %div.span6
+    %h2.muted
+      Humidity
+    %h1
+      %span.dark.measurement#humidity
 %div.row
   %div.span12
-    .data-box
-      %div
-        %span.temperature
-        &deg;C,
-        %span.humidity
-        \%
-      %div
-        (Updated:
-        %span.timestamp
-        )
+    Last updated
+    %span#timestamp
+  %div.span12
+
+%hr
+
+%div.row
+  %div.span12
+    %h2.dark History
+
+%h4.muted Temperature (24h)
+= line_chart average_temperature(:since => Time.now.to_i - 60*60*24, :averaged => :hour)
+
+
 
 
 :javascript
+
+  fade_if_different = function(element, value) {
+    if (element.html() == value) {
+      return;
+    }
+    else {
+      element.html(value).hide().fadeIn();
+    }
+  }
+
   update_databox = function() {
     $.getJSON('measurement/latest.json', function(data) {
         var temperature = data.temperature;
         var humidity = data.humidity;
-        var timestamp = new Date(data.timestamp * 1000);
-        $('.temperature').html(temperature);
-        $('.humidity').html(humidity);
-        $('.timestamp').html(timestamp);
+        var timestamp = new Date(data.created_at);
+        timestamp = jQuery.timeago(timestamp);
+
+        document.title = temperature + ' C, ' + humidity +' %';
+
+        fade_if_different($('#temperature'), temperature + ' C');
+        fade_if_different($('#humidity'), humidity + ' %');
+        fade_if_different($('#timestamp'), timestamp);
+
       });
   }
-
 
   updateloop = function() {
     setTimeout(function() {
@@ -37,3 +65,5 @@
     update_databox();
     updateloop();
   });
+
+
