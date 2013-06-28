@@ -3,7 +3,9 @@
 A temperature and humidity data logger and alert system I built to save
 the orange trees at our greenhouse at the University of Florida.
 
-![](http://i.imgur.com/kcUbzLx.jpg)
+![This is what it looks like](http://i.imgur.com/kcUbzLx.jpg)
+
+(Demo of web app)[http://triplab.ad.ufl.edu:4567/]
 
 ## How does it work?
 
