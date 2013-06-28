@@ -16,6 +16,17 @@ the orange trees at our greenhouse at the University of Florida.
 
 ## Instructions
 
+0. Buy Supplies
+  - (1) Raspberry Pi
+  - (1) DHT22 Temperature and Humidity sensor
+  - (1) Breadboard and (4) Jumper wires
+  - (1) 4-10 Ohm resistor
+  - (1) Greenhouse
+1. Configure Raspberry Pi
+  - [DHT22 Circuit](http://learn.adafruit.com/dht)
+  - [Software](https://github.com/audy/greenhouse-monitor/tree/master/raspi_code)
+2. [Configure web app](https://github.com/audy/greenhouse-monitor/tree/master/web_app)
+
 ## LICENSE
 
 The MIT License (MIT)
