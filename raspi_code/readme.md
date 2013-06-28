@@ -22,24 +22,22 @@ humidity reading is being made.
 4. Edit `/etc/rc.local` to start the script automatically when the
 Raspberry Pi boots:
 
-    screen -L -S monitor -m -d /home/pi/greenhouse_monitor/raspi_code/start_script.sh
+      screen -L -S monitor -m -d /home/pi/greenhouse_monitor/raspi_code/start_script.sh
 
 This will create a log file at `/screenlog.0`
 
 5. It's also a good idea to configure the Raspberry Pi to have a static
 IP address so you can diagnose problems by connecting your laptop to the
-Raspberry Pi directly via ethernet.
-
-This can be accomplished by editing the `/etc/network/interfaces` file.
-
+Raspberry Pi directly via ethernet. This can be accomplished by editing
+the `/etc/network/interfaces` file.
   - Change `iface eth0 inet dhcp` to `iface eth0 inet static`
   - Add the following below this line:
   
-      address 192.168.100.1
-      netmask 255.255.255.0
-      network 192.168.100.0
-      broadcast 192.168.100.255
-      gateway 192.168.100.254
+        address 192.168.100.1
+        netmask 255.255.255.0
+        network 192.168.100.0
+        broadcast 192.168.100.255
+        gateway 192.168.100.254
 
   - You should be able to SSH to the Raspberry Pi using a direct
     laptop->ethernet->raspi connection.
