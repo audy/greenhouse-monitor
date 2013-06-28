@@ -13,6 +13,7 @@ gem 'descriptive_statistics'
 
 group :twitter do
   gem 'chatterbot', :require => 'chatterbot/dsl'
+  gem 'rufus-scheduler', :require => 'rufus/scheduler'
 end
 
 gem 'sinatra-assetpack', \
