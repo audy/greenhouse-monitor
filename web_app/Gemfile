@@ -1,18 +1,18 @@
 source 'http://rubygems.org'
 source 'http://gems.github.com'
 
-gem "sinatra"
-gem "sinatra-reloader"
-gem "haml"
-gem "foreman"
-gem "chartkick"
+gem 'sinatra'
+gem 'sinatra-reloader'
+gem 'haml'
+gem 'foreman'
+gem 'chartkick'
 
-gem "data_mapper"
-gem "dm-sqlite-adapter"
-gem "descriptive_statistics"
+gem 'data_mapper'
+gem 'dm-sqlite-adapter'
+gem 'descriptive_statistics'
 
 group :twitter do
-  gem "chatterbot", :require => 'chatterbot/dsl'
+  gem 'chatterbot', :require => 'chatterbot/dsl'
 end
 
 gem 'sinatra-assetpack', \
@@ -20,7 +20,7 @@ gem 'sinatra-assetpack', \
   :git => 'git://github.com/rstacruz/sinatra-assetpack.git'
 
 group :test do
-  gem "rspec"
-  gem "webrat"
-  gem "rack-test", :require => "rack/test"
+  gem 'rspec'
+  gem 'webrat'
+  gem 'rack-test', :require => 'rack/test'
 end
