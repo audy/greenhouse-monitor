@@ -41,6 +41,7 @@ scheduler.every '1m' do
       reply "#USER# #{reading_string}", tweet
     end
   end
+  update_config
 end
 
 ##
@@ -67,6 +68,8 @@ scheduler.every '5m' do
   if (Time.now - data[:time]) > (60*30)
     tweet "DANGER! #{OWNER} We no get signal!"
   end
+
+  update_config
 end
 
 ##
