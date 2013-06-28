@@ -3,6 +3,8 @@
 A temperature and humidity data logger and alert system I built to save
 the orange trees at our greenhouse at the University of Florida.
 
+![](http://i.imgur.com/kcUbzLx.jpg)
+
 ## How does it work?
 
 - RaspberryPi
