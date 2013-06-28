@@ -6,7 +6,7 @@ gem "sinatra-reloader"
 gem "haml"
 gem "foreman"
 gem "chartkick"
-gem "groupdate"
+
 gem "data_mapper"
 gem "dm-sqlite-adapter"
 gem "descriptive_statistics"
