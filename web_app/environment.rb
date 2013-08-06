@@ -6,22 +6,21 @@ Bundler.require(:default)
 
 require './models.rb'
 
-DB_PATH = File.join(File.dirname(__FILE__), 'db')
-
 class Skellington < Sinatra::Base
 
   DataMapper.finalize
 
-  set :environment, :development
   set :root, File.dirname(__FILE__)
 
   configure :production do
     DataMapper.setup(:default,
-                     :adapter => 'sqlite',
-                     :database => File.join(DB_PATH, 'production.db'))
+                     :adapter => 'postgres',
+                     :database => ENV['HEROKU_POSTGRESQL_GREEN_URL'])
   end
 
   configure :development do
+
+    DB_PATH = File.join(File.dirname(__FILE__), 'db')
 
     DataMapper.setup(:default,
                      :adapter => 'sqlite',

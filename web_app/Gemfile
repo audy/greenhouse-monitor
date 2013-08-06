@@ -8,7 +8,6 @@ gem 'foreman'
 gem 'chartkick'
 
 gem 'data_mapper'
-gem 'dm-sqlite-adapter'
 gem 'descriptive_statistics'
 
 group :twitter do
@@ -19,6 +18,14 @@ end
 gem 'sinatra-assetpack', \
   :require => 'sinatra/assetpack', \
   :git => 'git://github.com/rstacruz/sinatra-assetpack.git'
+
+group :development do
+  gem 'dm-sqlite-adapter'
+end
+
+group :production do
+  gem 'dm-postgres-adapter'
+end
 
 group :test do
   gem 'rspec'
