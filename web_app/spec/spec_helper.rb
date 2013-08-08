@@ -1,12 +1,14 @@
-require File.join(File.dirname(__FILE__), '..', 'application')
-
-require 'rack/test'
 require 'bundler'
 
 Bundler.require(:default, :test)
 
-set :environment, :test
-set :logging, false
+Sinatra::Base.set :environment, :test
+Sinatra::Base.set :run, false
+Sinatra::Base.set :raise_errors, true
+Sinatra::Base.set :logging, false
+
+require File.join(File.dirname(__FILE__), '..', 'application')
+
 
 Webrat.configure do |config|
   config.mode = :rack
