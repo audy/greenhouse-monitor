@@ -1,6 +1,5 @@
 require './environment.rb'
 require './helpers.rb'
-require 'sinatra'
 
 class Skellington < Sinatra::Base
 
@@ -11,7 +10,7 @@ class Skellington < Sinatra::Base
   assets do
     serve '/js',     from: 'assets/js'
     serve '/css',    from: 'assets/css'
-    # serve '/images': from: 'assets/images'
+    serve '/images', from: 'assets/images'
 
     css :main, ['/css/*.css']
     js :main, ['/js/*.js']
@@ -50,5 +49,4 @@ class Skellington < Sinatra::Base
                                  :humidity => params[:humidity].to_f
     p reading
   end
-
 end
