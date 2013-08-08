@@ -21,6 +21,7 @@ gem 'sinatra-assetpack', \
 
 group :development do
   gem 'dm-sqlite-adapter'
+  gem 'rake'
 end
 
 group :production do
