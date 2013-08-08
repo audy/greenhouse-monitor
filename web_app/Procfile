@@ -1,3 +1,2 @@
-web: rackup
+web: bundle exec rackup
 twitter: ruby twitter.rb
-twillio: ruby twillio.rb
