@@ -4,7 +4,7 @@ Bundler.require :twitter
 require 'open-uri'
 require 'json'
 
-ENDPOINT = 'http://triplab.ad.ufl.edu:4567/measurement/latest.json'
+ENDPOINT = 'http://greenhouse.heyaudy.com/measurement/latest.json'
 HIGH_THRESHOLD = 37 # Celsius
 LOW_THRESHOLD = 10
 DELAY= 60 # seconds.
