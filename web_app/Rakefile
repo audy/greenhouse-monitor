@@ -1,6 +1,7 @@
 desc "start application console"
 task :console do
   require 'irb'
+  puts 'loading environment'
   load 'environment.rb'
   ARGV.clear
   IRB.start
@@ -21,5 +22,19 @@ namespace :db do
     load 'environment.rb'
     fail "never auto_migrate! on the production server!" if $ENVIRONMENT == :production
     DataMapper.auto_migrate!
+  end
+
+  desc "dump data to out.csv"
+  task :dump do
+    load 'environment.rb'
+    File.open('out.csv', 'w') do |out|
+		Measurement.each do |m|
+ 			out.puts 'id,created_at,temperature,humidity'
+			out.puts [m.id,
+					  m.created_at,
+					  m.temperature,
+					  m.humidity].join(',')
+        end
+    end
   end
 end
