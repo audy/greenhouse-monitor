@@ -30,7 +30,7 @@ class Skellington < Sinatra::Base
   end
 
   get '/' do
-    @measurements = Measurement.all.to_a
+    @measurement = Measurement.last
     haml :home
   end
 
