@@ -5,7 +5,7 @@ require 'open-uri'
 require 'json'
 
 ENDPOINT = 'http://greenhouse.heyaudy.com/measurement/latest.json'
-HIGH_THRESHOLD = 37 # Celsius
+HIGH_THRESHOLD = 40 # Celsius
 LOW_THRESHOLD = 10
 DELAY= 60 # seconds.
 OWNER = '@heyaudy'
