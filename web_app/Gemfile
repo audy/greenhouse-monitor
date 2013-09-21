@@ -6,6 +6,7 @@ gem 'sinatra-reloader'
 gem 'haml'
 gem 'foreman'
 gem 'chartkick'
+gem 'active_support', :require => 'active_support/time' # for 5.seconds.ago
 
 gem 'data_mapper'
 gem 'descriptive_statistics'
@@ -27,6 +28,7 @@ gem 'sinatra-assetpack', \
 group :development do
   gem 'dm-sqlite-adapter'
   gem 'rake'
+  gem 'pry'
 end
 
 group :production do
