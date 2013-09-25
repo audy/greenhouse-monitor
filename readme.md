@@ -5,7 +5,7 @@ the orange trees at our greenhouse at the University of Florida.
 
 ![This is what it looks like](http://i.imgur.com/kcUbzLx.jpg)
 
-[Demo of web app](http://triplab.ad.ufl.edu:4567/)
+[Demo of web app](http://greenhouse.heyaudy.com/)
 
 ## How does it work?
 
